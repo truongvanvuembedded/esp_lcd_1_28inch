@@ -15,6 +15,8 @@ It uses the **LVGL (Light and Versatile Graphics Library)** to render a modern a
     - 400 KB SRAM (16 KB for cache)
     - 8 KB SRAM in RTC
     - 4 MB flash in chip package
+## Config (Idf.py menuconfig)
+- FLash size: 4Mb
 
 ## 📁 Project Structure
 
