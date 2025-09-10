@@ -2,3 +2,5 @@ build/
 .vscode/
 managed_components/
 Unittest/
+sdkconfig.old
+dependencies.lock

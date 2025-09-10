@@ -1,10 +1,10 @@
 //==================================================================================================
 //
-//	File Name		: main.c
+//	File Name		: Drv_Display.c
 //	CPU Type		: ESP32-C3
 //	Project Name	: ESP32_C3_LCD_128Inch
 //
-//	Description		: Entry main application
+//	Description		: Display application handle task such as init LCD and LVGL
 //
 //	History			: Ver.0.01		2025.09.09 V.Vu	 New
 //
@@ -28,15 +28,12 @@
 
 // Esp-Idf lib
 #include "esp_log.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "freertos/timers.h"
+
 // User lib
-#include "Display.h"
+#include "Touch.h"
 
 // External lib
-#include "lvgl.h"
-#include "demos/lv_demos.h"
+
 //==================================================================================================
 //	Local define
 //==================================================================================================
@@ -52,11 +49,11 @@
 //==================================================================================================
 //	Local RAM 
 //==================================================================================================
-TaskHandle_t taskDisplayHandle = NULL;
+
 //==================================================================================================
 //	Local ROM
 //==================================================================================================
-static const char *TAG = "main.c";
+static const char *TAG = "Touch.c";
 //==================================================================================================
 //	Local Function Prototype
 //==================================================================================================
@@ -65,34 +62,14 @@ static const char *TAG = "main.c";
 //	Source Code
 //==================================================================================================
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//	Name	:	task_Display
-//	Function:   Implement all related task to Display
+//
+//	Name	:	Touch_Init
+//	Function:	Init touch hardware 
 //	
-//	Argument:	void * arg: User data
-//	Return	:	None
-//	Create	:	09/09/2025
+//	Argument:	-
+//	Return	:	-
+//	Create	:	09/05/2025
 //	Change	:	-
-//	Remarks	:	-
+//	Remarks	:	
+//
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-void task_Display( void * arg )
-{
-    Display_Init();
-    for(;;){
-
-        vTaskDelay(pdMS_TO_TICKS(100));;
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//	Name	:	app_main
-//	Function:   Entry point for application
-//	
-//	Argument:	None
-//	Return	:	None
-//	Create	:	09/09/2025
-//	Change	:	-
-//	Remarks	:	-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-void app_main(void)
-{
-    xTaskCreate( task_Display, "Task Display", 32768, NULL, 5,&taskDisplayHandle );
-}
