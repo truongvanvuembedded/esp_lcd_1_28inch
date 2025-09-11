@@ -18,4 +18,3 @@ dependencies:
   lvgl/lvgl:
     version: 9.2.0
   espressif/esp_lcd_gc9a01: ^2.0.3
-  espp/cst816: ^1.0.22

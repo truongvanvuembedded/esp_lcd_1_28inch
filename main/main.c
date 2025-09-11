@@ -33,7 +33,7 @@
 #include "freertos/timers.h"
 // User lib
 #include "Display.h"
-
+#include "Touch.h" 
 // External lib
 #include "lvgl.h"
 #include "demos/lv_demos.h"
@@ -77,6 +77,7 @@ static const char *TAG = "main.c";
 void task_Display( void * arg )
 {
     Display_Init();
+    Touch_Init();
     for(;;){
 
         vTaskDelay(pdMS_TO_TICKS(100));;

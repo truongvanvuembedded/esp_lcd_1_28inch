@@ -31,9 +31,10 @@
 
 // User lib
 #include "Touch.h"
-
+#include "Drv_Display.h"
+#include "Drv_Touch.h"
 // External lib
-
+#include "lvgl.h"
 //==================================================================================================
 //	Local define
 //==================================================================================================
@@ -54,10 +55,11 @@
 //	Local ROM
 //==================================================================================================
 static const char *TAG = "Touch.c";
+
 //==================================================================================================
 //	Local Function Prototype
 //==================================================================================================
-
+static void touchRead(lv_indev_t * indev, lv_indev_data_t * data);
 //==================================================================================================
 //	Source Code
 //==================================================================================================
@@ -73,3 +75,36 @@ static const char *TAG = "Touch.c";
 //	Remarks	:	
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+void Touch_Init(void){
+    DrvTouch_Init();
+    lv_display_t* lv_Disp = DrvDisplay_GetDisplay();
+    if(!lv_Disp){
+        return;
+    }
+    lv_indev_t * indev = lv_indev_create();        /* Create input device connected to Default Display. */
+	lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);   /* Touch pad is a pointer-like device. */
+	lv_indev_set_read_cb(indev, touchRead);    /* Set driver function. */
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//	Name:			touchRead
+//	Function:		Read touch input from CS816D and update LVGL input data
+//
+//	Argument:		-
+//	Return value:	-
+//	Create:			2024.11.27 V.Vu	 New
+//	Change:			-
+//	Remarks:		 Create a button at the center of the screen
+////////////////////////////////////////////////////////////////////////////////////////////////////
+static void touchRead(lv_indev_t * indev, lv_indev_data_t * data)
+{
+    ST_TOUCH_DATA st_TouchData;
+	U1 u1_Pressed;
+	u1_Pressed = u1_DrvReadTouch(&st_TouchData);	// Read touch data from CS816D
+	if(u1_Pressed == U1OK) {
+		data->point.x = st_TouchData.u2_X;
+		data->point.y = st_TouchData.u2_Y;
+		data->state = LV_INDEV_STATE_PRESSED;
+	} else {
+		data->state = LV_INDEV_STATE_RELEASED;
+	}
+}
