@@ -1,0 +1,27 @@
+idf_component_register(
+    SRCS
+        components/ui_comp_wifiitem.c
+        components/ui_comp.c
+        screens/ui_MenuScreen.c
+        screens/ui_WifiSettingScreen.c
+        screens/ui_SettingButton.c
+        screens/ui_MainScreen.c
+        ui.c
+        components/ui_comp_hook.c
+        ui_helpers.c
+        ui_events.c
+        images/ui_img_wifi_png.c
+        images/ui_img_home_png.c
+        images/ui_img_settings_png.c
+        images/ui_img_1765884034.c
+        images/ui_img_info_png.c
+        images/ui_img_untitled_png.c
+        images/ui_img_sun_png.c
+        fonts/ui_font_Font1.c
+    INCLUDE_DIRS
+        "."
+        components
+        screens
+        images
+        fonts
+)
