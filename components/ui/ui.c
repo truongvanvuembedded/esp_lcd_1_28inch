@@ -34,7 +34,7 @@ void ui_init(void)
     lv_disp_set_theme(dispp, theme);
     ui_MenuScreen_screen_init();
     ui_WifiSettingScreen_screen_init();
-    ui_SettingButton_screen_init();
+    ui_SettingScreen_screen_init();
     ui_MainScreen_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_MenuScreen);
@@ -44,6 +44,6 @@ void ui_destroy(void)
 {
     ui_MenuScreen_screen_destroy();
     ui_WifiSettingScreen_screen_destroy();
-    ui_SettingButton_screen_destroy();
+    ui_SettingScreen_screen_destroy();
     ui_MainScreen_screen_destroy();
 }

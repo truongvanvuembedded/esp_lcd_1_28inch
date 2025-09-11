@@ -13,13 +13,14 @@ extern "C" {
 // SCREEN: ui_SettingButton
 extern void ui_SettingButton_screen_init(void);
 extern void ui_SettingButton_screen_destroy(void);
-extern lv_obj_t * ui_SettingButton;
+extern lv_obj_t * ui_SettingScreen;
 extern lv_obj_t * ui_Container;
 extern lv_obj_t * ui_Label3;
 extern void ui_event_Slider1(lv_event_t * e);
 extern lv_obj_t * ui_Slider1;
 extern lv_obj_t * ui_SliderValueLable;
 // CUSTOM VARIABLES
+extern lv_obj_t * uic_SettingScreen;
 extern lv_obj_t * uic_SliderValueLable;
 
 #ifdef __cplusplus

@@ -6,7 +6,8 @@
 #include "../ui.h"
 
 lv_obj_t * uic_SliderValueLable;
-lv_obj_t * ui_SettingButton;
+lv_obj_t * uic_SettingScreen;
+lv_obj_t * ui_SettingScreen;
 lv_obj_t * ui_Container;
 lv_obj_t * ui_Label3;
 lv_obj_t * ui_Slider1;
@@ -25,12 +26,12 @@ void ui_event_Slider1(lv_event_t * e)
 
 // build funtions
 
-void ui_SettingButton_screen_init(void)
+void ui_SettingScreen_screen_init(void)
 {
-    ui_SettingButton = lv_obj_create(NULL);
-    lv_obj_remove_flag(ui_SettingButton, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_SettingScreen = lv_obj_create(NULL);
+    lv_obj_remove_flag(ui_SettingScreen, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Container = lv_obj_create(ui_SettingButton);
+    ui_Container = lv_obj_create(ui_SettingScreen);
     lv_obj_remove_style_all(ui_Container);
     lv_obj_set_height(ui_Container, 50);
     lv_obj_set_width(ui_Container, lv_pct(100));
@@ -45,7 +46,7 @@ void ui_SettingButton_screen_init(void)
     lv_obj_set_align(ui_Label3, LV_ALIGN_CENTER);
     lv_label_set_text(ui_Label3, "Brightness");
 
-    ui_Slider1 = lv_slider_create(ui_SettingButton);
+    ui_Slider1 = lv_slider_create(ui_SettingScreen);
     lv_slider_set_value(ui_Slider1, 0, LV_ANIM_OFF);
     if(lv_slider_get_mode(ui_Slider1) == LV_SLIDER_MODE_RANGE) lv_slider_set_left_value(ui_Slider1, 0, LV_ANIM_OFF);
     lv_obj_set_height(ui_Slider1, 30);
@@ -55,7 +56,7 @@ void ui_SettingButton_screen_init(void)
     //Compensating for LVGL9.1 draw crash with bar/slider max value when top-padding is nonzero and right-padding is 0
     if(lv_obj_get_style_pad_top(ui_Slider1, LV_PART_MAIN) > 0) lv_obj_set_style_pad_right(ui_Slider1,
                                                                                               lv_obj_get_style_pad_right(ui_Slider1, LV_PART_MAIN) + 1, LV_PART_MAIN);
-    ui_SliderValueLable = lv_label_create(ui_SettingButton);
+    ui_SliderValueLable = lv_label_create(ui_SettingScreen);
     lv_obj_set_width(ui_SliderValueLable, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_SliderValueLable, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_x(ui_SliderValueLable, 0);
@@ -64,16 +65,18 @@ void ui_SettingButton_screen_init(void)
     lv_label_set_text(ui_SliderValueLable, "0");
 
     lv_obj_add_event_cb(ui_Slider1, ui_event_Slider1, LV_EVENT_ALL, NULL);
+    uic_SettingScreen = ui_SettingScreen;
     uic_SliderValueLable = ui_SliderValueLable;
 
 }
 
-void ui_SettingButton_screen_destroy(void)
+void ui_SettingScreen_screen_destroy(void)
 {
-    if(ui_SettingButton) lv_obj_del(ui_SettingButton);
+    if(ui_SettingScreen) lv_obj_del(ui_SettingScreen);
 
     // NULL screen variables
-    ui_SettingButton = NULL;
+    uic_SettingScreen = NULL;
+    ui_SettingScreen = NULL;
     ui_Container = NULL;
     ui_Label3 = NULL;
     ui_Slider1 = NULL;
