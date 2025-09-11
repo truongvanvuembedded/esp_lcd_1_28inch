@@ -48,5 +48,5 @@
 //	Function Prototype
 //==================================================================================================
 void Display_Init(void);
-
+void Display_Job(void);
 #endif	// DISPLAY_H

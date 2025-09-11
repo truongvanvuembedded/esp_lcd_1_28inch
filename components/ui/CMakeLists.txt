@@ -24,4 +24,5 @@ idf_component_register(
         screens
         images
         fonts
+    PRIV_REQUIRES lvgl
 )
