@@ -20,6 +20,32 @@ lv_obj_t * ui_WatchButotn;
 lv_obj_t * ui_Image4;
 
 // event funtions
+void ui_event_Image1(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_WifiSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_WifiSettingScreen_screen_init);
+    }
+}
+
+void ui_event_Image2(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_MainScreen_screen_init);
+    }
+}
+
+void ui_event_Image3(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SettingButton, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SettingButton_screen_init);
+    }
+}
 
 // build funtions
 
@@ -104,6 +130,9 @@ void ui_MenuScreen_screen_init(void)
     lv_obj_remove_flag(ui_Image4, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_image_set_scale(ui_Image4, 200);
 
+    lv_obj_add_event_cb(ui_Image1, ui_event_Image1, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Image2, ui_event_Image2, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Image3, ui_event_Image3, LV_EVENT_ALL, NULL);
     uic_MenuScreen = ui_MenuScreen;
     uic_WifiButton = ui_WifiButton;
     uic_MainScreenButton = ui_MainScreenButton;
