@@ -122,7 +122,7 @@ void ui_MenuScreen_screen_init(void)
     lv_obj_set_style_bg_opa(ui_WatchButotn, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_Image4 = lv_image_create(ui_WatchButotn);
-    lv_image_set_src(ui_Image4, &ui_img_1765884034);
+    lv_image_set_src(ui_Image4, &ui_img_smart_watch_png);
     lv_obj_set_width(ui_Image4, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_Image4, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_align(ui_Image4, LV_ALIGN_CENTER);

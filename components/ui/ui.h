@@ -22,7 +22,7 @@ extern "C" {
 
 #include "screens/ui_MenuScreen.h"
 #include "screens/ui_WifiSettingScreen.h"
-#include "screens/ui_SettingButton.h"
+#include "screens/ui_SettingScreen.h"
 #include "screens/ui_MainScreen.h"
 
 ///////////////////// VARIABLES ////////////////////
@@ -36,7 +36,7 @@ extern lv_obj_t * ui____initial_actions0;
 LV_IMG_DECLARE(ui_img_wifi_png);    // assets/wifi.png
 LV_IMG_DECLARE(ui_img_home_png);    // assets/home.png
 LV_IMG_DECLARE(ui_img_settings_png);    // assets/settings.png
-LV_IMG_DECLARE(ui_img_1765884034);    // assets/smart-watch.png
+LV_IMG_DECLARE(ui_img_smart_watch_png);    // assets/smart_watch.png
 LV_IMG_DECLARE(ui_img_info_png);    // assets/info.png
 LV_IMG_DECLARE(ui_img_untitled_png);    // assets/Untitled.png
 LV_IMG_DECLARE(ui_img_sun_png);    // assets/sun.png

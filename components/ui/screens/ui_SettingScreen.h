@@ -3,16 +3,16 @@
 // LVGL version: 9.2.2
 // Project name: esp32_lcd_1_28_inch
 
-#ifndef UI_SETTINGBUTTON_H
-#define UI_SETTINGBUTTON_H
+#ifndef UI_SETTINGSCREEN_H
+#define UI_SETTINGSCREEN_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// SCREEN: ui_SettingButton
-extern void ui_SettingButton_screen_init(void);
-extern void ui_SettingButton_screen_destroy(void);
+// SCREEN: ui_SettingScreen
+extern void ui_SettingScreen_screen_init(void);
+extern void ui_SettingScreen_screen_destroy(void);
 extern lv_obj_t * ui_SettingScreen;
 extern lv_obj_t * ui_Container;
 extern lv_obj_t * ui_Label3;

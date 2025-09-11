@@ -11,7 +11,7 @@ ui_events.c
 images/ui_img_wifi_png.c
 images/ui_img_home_png.c
 images/ui_img_settings_png.c
-images/ui_img_1765884034.c
+images/ui_img_smart_watch_png.c
 images/ui_img_info_png.c
 images/ui_img_untitled_png.c
 images/ui_img_sun_png.c
