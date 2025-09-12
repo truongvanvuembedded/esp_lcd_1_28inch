@@ -137,7 +137,7 @@ static esp_err_t drvLcd_Init(void)
 
     esp_lcd_panel_reset(lcd_panel);
     esp_lcd_panel_init(lcd_panel);
-    esp_lcd_panel_mirror(lcd_panel, true, true);
+    // esp_lcd_panel_mirror(lcd_panel, true, true);
     esp_lcd_panel_disp_on_off(lcd_panel, true);
 
     /* LCD backlight on */
@@ -194,7 +194,7 @@ static esp_err_t lvglPort_Init(void)
         .rotation = {
             .swap_xy = false,
             .mirror_x = true,
-            .mirror_y = true,
+            .mirror_y = false,
         },
         .flags = {
             .buff_dma = true,
